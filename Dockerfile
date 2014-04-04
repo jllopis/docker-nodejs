@@ -19,10 +19,6 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # hopefully temporary work-around of http://git.io/Ke_Meg#1724
 RUN apt-mark hold initscripts udev plymouth mountall
 
-# Add PPA for node.js
-RUN echo "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu saucy main" >> /etc/apt/sources.list.d/ppa_chris_lea_nodejs_saucy.list; \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-key C7917B12
-
 # System upgrade
 RUN apt-get -qq update && \
     apt-get -qqy upgrade --no-install-recommends
@@ -31,4 +27,5 @@ RUN apt-get -qq update && \
 RUN apt-get -qy install git mercurial curl --no-install-recommends
 
 # Install nodejs
-RUN apt-get -qy install nodejs=0.10.26-1chl1~saucy1
+RUN curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar -C /usr/local/ --strip-components=1 -zxv
+
