@@ -1,6 +1,6 @@
 # VERSION         v0.2.0
 # DOCKER-VERSION  0.9.1
-# NODEJS-VERSION  0.10.28
+# NODEJS-VERSION  0.10.29
 # AUTHOR:         Joan Llopis <jllopis@acb.es>
 # DESCRIPTION:    Image with nodejs and dependencies
 # TO_BUILD:       docker build --rm -t jllopis/nodejs:{version} .
@@ -24,5 +24,5 @@ RUN apt-get -qq update && \
 RUN apt-get -qy install git mercurial curl --no-install-recommends
 
 # Install nodejs
-RUN curl http://nodejs.org/dist/v0.10.28/node-v0.10.28-linux-x64.tar.gz | tar -C /usr/local/ --strip-components=1 -zxv
+RUN curl http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz | tar -C /usr/local/ --strip-components=1 -zxv
 
